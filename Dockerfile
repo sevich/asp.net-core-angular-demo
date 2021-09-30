@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 RUN apt-get update && \
     apt-get install curl && \
     curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt-get install -y nodejs \
+    apt-get install -y build-essentials nodejs \
     node -v \
     npm -v
 RUN npm install @angular/cli -g
