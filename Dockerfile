@@ -1,11 +1,9 @@
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 # Setup NodeJs
 RUN apt-get update && \
-    apt-get install curl && \
+    apt-get install curl gnupg && \
     curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt-get install -y build-essentials nodejs \
-    node -v \
-    npm -v
+    apt-get install -y build-essentials nodejs
 RUN npm install @angular/cli -g
 # End setup
 
