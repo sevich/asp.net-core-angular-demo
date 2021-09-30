@@ -16,7 +16,7 @@ WORKDIR "/src/."
 RUN dotnet build "angular.csproj" -c Release -o /app
 RUN dotnet publish "angular.csproj" -c Release -o /app
 
-FROM node:14.18.0 AS node-build
+FROM node:14 AS node-build
 WORKDIR /src/ClientApp
 COPY . .
 RUN npm install
