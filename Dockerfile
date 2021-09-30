@@ -17,8 +17,8 @@ RUN dotnet build "angular.csproj" -c Release -o /app
 RUN dotnet publish "angular.csproj" -c Release -o /app
 
 FROM node:14.18.0 AS node-build
-WORKDIR /src
-COPY ./ClientApp .
+WORKDIR /src/ClientApp
+COPY . .
 RUN npm install
 RUN npm rebuild node-sass
 RUN npm run build -- --prod
