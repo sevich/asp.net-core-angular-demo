@@ -1,6 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import marked, { Renderer } from 'marked';
-import DOMPurify from 'isomorphic-dompurify';
+import { Injectable } from "@angular/core";
+import { Renderer } from "marked";
+import * as marked from "marked";
+import * as DOMPurify from "dompurify";
 
 @Injectable()
 export class MarkdownService {
