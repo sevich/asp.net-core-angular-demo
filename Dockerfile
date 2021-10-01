@@ -23,7 +23,7 @@ FROM build AS publish
 RUN dotnet publish "angular.csproj" -c Release -o /app
 
 FROM base AS final
-WORKDIR /src/ClientApp
+WORKDIR /app/ClientApp
 COPY . .
 RUN npm install
 RUN npm rebuild node-sass
