@@ -6,17 +6,11 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-ARG skip_client_build=false
 WORKDIR /app
 COPY /ClientApp .
-RUN if [ "$skip_client_build" == true ]; `
-then `
-echo "Skipping npm install"; `
-mkdir -p dist; `
-else `
-npm install; `
-npm run build; `
-fi
+RUN npm install
+RUN npm rebuild node-sass
+RUN npm run build -- --prod
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
